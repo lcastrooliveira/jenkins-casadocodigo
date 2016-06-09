@@ -7,8 +7,8 @@
     <bean id="myDataSource"
         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
-        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-        <property name="url" value="jdbc:oracle:thin:@cascao:1521:o12c" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/minhasmoedas" />
         <property name="username" value="minhasmoedas" />
         <property name="password" value="dimdim" />
     </bean>
