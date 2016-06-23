@@ -19,13 +19,13 @@
     <beans profile="test">
 	  <context:property-placeholder
 	    ignore-resource-not-found="false"
-	    location="classpath*:/META-INF/test.properties" />
+	    location="classpath*:/META-INF/db.properties" />
 	</beans>
 	
 	<beans profile="production">
 	  <context:property-placeholder
 	    ignore-resource-not-found="false"
-	    location="classpath*:/META-INF/production.properties" />
+	    location="classpath*:/META-INF/db.properties" />
 	</beans>
 
 </beans>
