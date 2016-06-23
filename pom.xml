@@ -16,27 +16,6 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<sonar.scm.provider>svn</sonar.scm.provider>
 	</properties>
-	<profiles>
-		<profile>
-			<id>production</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-				<property>
-					<name>spring.profiles.active</name>
-					<value>test</value>
-				</property>
-			</activation>
-		</profile>
-		<profile>
-			<id>test</id>
-			<activation>
-				<property>
-					<name>spring.profiles.active</name>
-					<value>test</value>
-				</property>
-			</activation>
-		</profile>
-	</profiles>
 
 	<dependencies>	
 		<dependency>
@@ -217,6 +196,25 @@
 			</resource>
 		</resources>
 	</build>
-
-
+	<profiles>
+		<profile>
+			<id>production</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>spring.profiles.active</name>
+					<value>test</value>
+				</property>
+			</activation>
+		</profile>
+		<profile>
+			<id>test</id>
+			<activation>
+				<property>
+					<name>spring.profiles.active</name>
+					<value>test</value>
+				</property>
+			</activation>
+		</profile>
+	</profiles>
 </project>
