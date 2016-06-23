@@ -191,7 +191,7 @@
 		</plugins>
 		<resources>
 			<resource>
-				<directory>src/main/resources/META-INF/db.properties</directory>
+				<directory>src/main/resources/</directory>
 				<filtering>true</filtering>
 			</resource>
 		</resources>
@@ -199,22 +199,15 @@
 	<profiles>
 		<profile>
 			<id>production</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-				<property>
-					<name>spring.profiles.active</name>
-					<value>test</value>
-				</property>
-			</activation>
+			<properties>
+    			<jdbc.url>jdbc:mysql://localhost:3306/minhasmoedas</jdbc.url>
+  			</properties>
 		</profile>
 		<profile>
 			<id>test</id>
-			<activation>
-				<property>
-					<name>spring.profiles.active</name>
-					<value>test</value>
-				</property>
-			</activation>
+			<properties>
+    			<jdbc.url>jdbc:mysql://localhost:3306/minhasmoedas_test</jdbc.url>
+  			</properties>
 		</profile>
 	</profiles>
 </project>
