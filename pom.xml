@@ -18,29 +18,34 @@
 	</properties>
 	<profiles>
 		<profile>
-	        <id>production</id>
-	        <activation>
-	            <activeByDefault>true</activeByDefault>
-	            <property>
-	                <name>spring.profiles.active</name>
-	                <value>test</value>
-	            </property>
-	        </activation>
-	    </profile>
-	    <profile>
-	        <id>test</id>
-	        <activation>
-	            <property>
-	                <name>spring.profiles.active</name>
-	                <value>test</value>
-	            </property>
-	        </activation>
-	    </profile>
-    </profiles>
-    <scm>
-     <connection>scm:svn:hhttp://cascao/svn/boagliorep/minhasmoedas/</connection>
-    </scm>
-	<dependencies>
+			<id>production</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>spring.profiles.active</name>
+					<value>test</value>
+				</property>
+			</activation>
+		</profile>
+		<profile>
+			<id>test</id>
+			<activation>
+				<property>
+					<name>spring.profiles.active</name>
+					<value>test</value>
+				</property>
+			</activation>
+		</profile>
+	</profiles>
+
+	<dependencies>	
+		<dependency>
+			<groupId>com.manydesigns</groupId>
+			<artifactId>portofino-war-gae</artifactId>
+    		<version>4.2</version>
+			<type>war</type>
+			<scope>compile</scope>
+		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -109,9 +114,9 @@
 		</dependency>
 		<!-- mysql -->
 		<dependency>
-    			<groupId>mysql</groupId>
-    			<artifactId>mysql-connector-java</artifactId>
-    			<version>5.1.34</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.34</version>
 		</dependency>
 		<!-- Selenium -->
 		<dependency>
@@ -132,6 +137,17 @@
 	<build>
 		<finalName>minhas-moedas</finalName>
 		<plugins>
+			<!-- Enabling and configuring regular resources filtering. See also section 
+				"resources" below -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.1</version>
+				<configuration>
+					<!-- specify UTF-8, ISO-8859-1 or any other file encoding -->
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
 			<!-- Testes unitarios -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -194,6 +210,12 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources/META-INF/db.properties</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 
 
